@@ -1,6 +1,7 @@
 // "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=bcf2d6ffcb93077ae5816ec9f9ba72b8&units=metric";
 import { fetchWeather } from "./api.js";
-console.log("hello");
+// import { displayWeather } from "./display.js";
+// console.log("hello");
 
 const location = document.getElementById("location");
 const searchBtn = document.getElementById("search-btn");
