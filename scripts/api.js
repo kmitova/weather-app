@@ -5,19 +5,11 @@ async function fetchWeather(location) {
   const city = document.getElementById("location").value;
   const apiKey = "&APPID=bcf2d6ffcb93077ae5816ec9f9ba72b8";
   const units = "&units=metric";
-
   const url = api + city + apiKey + units;
   try {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    // console.log(data.main.feels_like);
-    // console.log(data.name);
-    // console.log(data.wind.speed);
-    // console.log(data.main.temp);
-    // console.log(data.main.humidity);
-
-    // console.log(data.weather[0].main);
     const weather = {
       name: data.name,
       temp: Math.round(data.main.temp),
@@ -28,8 +20,8 @@ async function fetchWeather(location) {
     };
     console.log(weather);
     displayWeather(weather);
-    // return weather;
   } catch (err) {
+    // TODO: make custom error with a function
     console.log(err);
   }
 }
