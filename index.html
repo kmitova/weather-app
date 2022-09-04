@@ -8,10 +8,25 @@
     <title>Weather App</title>
   </head>
   <body>
+    <header>
+      <div class="units">
+        <p id="imperial">Imperial</p>
+        <label class="switch">
+          <input type="checkbox" checked />
+          <span class="slider round"></span>
+        </label>
+        <p id="metric">Metric</p>
+      </div>
+    </header>
     <main>
-      <input type="text" placeholder="Enter location..." id="location" />
-      <button class="btn" id="search-btn">Search</button>
+      <!-- <div class="container"> -->
+      <div class="search-field">
+        <input type="text" placeholder="Enter location..." id="location" />
+        <button class="btn" id="search-btn">Search</button>
+      </div>
+
       <div class="display-weather"></div>
+      <!-- </div> -->
     </main>
 
     <script src="./scripts/app.js" type="module"></script>

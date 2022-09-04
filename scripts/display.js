@@ -3,6 +3,10 @@ function displayWeather(weather) {
   displayDiv.innerHTML = "";
   displayDiv.style.border = "2px solid black";
 
+  let checkbox = document.querySelector("input[type='checkbox']");
+
+  console.log(checkbox.checked);
+
   if (weather.conditions === "Clear") {
     displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
   } else if (weather.conditions === "Clouds") {
@@ -39,7 +43,11 @@ function displayWeather(weather) {
   tempDiv.classList.add("temp");
   lowerDiv.appendChild(tempDiv);
 
-  build(tempDiv, "p", `${weather.temp}°C`);
+  if (checkbox.checked) {
+    build(tempDiv, "p", `${weather.temp}°C`);
+  } else {
+    build(tempDiv, "p", `${Math.round((weather.temp * 9) / 5 + 32)}°F`);
+  }
 
   const infoDiv = document.createElement("div");
   infoDiv.classList.add("info-div");
@@ -49,7 +57,16 @@ function displayWeather(weather) {
   list.classList.add("more-info-list");
   infoDiv.appendChild(list);
 
-  build(list, "li", `Feels like: ${weather.feels}°C`);
+  if (checkbox.checked) {
+    build(list, "li", `Feels like: ${weather.feels}°C`);
+  } else {
+    build(
+      list,
+      "li",
+      `Feels like: ${Math.round((weather.feels * 9) / 5 + 32)}°F`
+    );
+  }
+
   build(list, "li", `Wind: ${weather.wind} km/h`);
   build(list, "li", `Humidity: ${weather.humidity}%`);
 }
