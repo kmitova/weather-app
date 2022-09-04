@@ -59,15 +59,15 @@ function displayWeather(weather) {
 
   if (checkbox.checked) {
     build(list, "li", `Feels like: ${weather.feels}°C`);
+    build(list, "li", `Wind: ${weather.wind} km/h`);
   } else {
     build(
       list,
       "li",
       `Feels like: ${Math.round((weather.feels * 9) / 5 + 32)}°F`
     );
+    build(list, "li", `Wind: ${(weather.wind / 1.609344).toFixed(2)} mph`);
   }
-
-  build(list, "li", `Wind: ${weather.wind} km/h`);
   build(list, "li", `Humidity: ${weather.humidity}%`);
 }
 
