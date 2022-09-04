@@ -1,6 +1,7 @@
 function displayWeather(weather) {
   const displayDiv = document.querySelector(".display-weather");
   displayDiv.innerHTML = "";
+  displayDiv.style.border = "2px solid black";
 
   if (weather.conditions === "Clear") {
     displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
@@ -59,4 +60,4 @@ function build(location, type, content) {
   el.textContent = content;
 }
 
-export { displayWeather };
+export { displayWeather, build };

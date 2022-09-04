@@ -1,4 +1,5 @@
 import { displayWeather } from "./display.js";
+import { displayError } from "./err.js";
 
 async function fetchWeather(location) {
   const api = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -21,8 +22,8 @@ async function fetchWeather(location) {
     console.log(weather);
     displayWeather(weather);
   } catch (err) {
-    // TODO: make custom error with a function
     console.log(err);
+    displayError();
   }
 }
 
