@@ -7,7 +7,6 @@ const location = document.getElementById("location");
 const searchBtn = document.getElementById("search-btn");
 
 searchBtn.addEventListener("click", () => {
-  console.log(location.value);
   fetchWeather();
 });
 

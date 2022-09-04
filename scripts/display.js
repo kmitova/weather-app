@@ -2,6 +2,28 @@ function displayWeather(weather) {
   const displayDiv = document.querySelector(".display-weather");
   displayDiv.innerHTML = "";
 
+  if (weather.conditions === "Clear") {
+    displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
+  } else if (weather.conditions === "Clouds") {
+    displayDiv.style.backgroundImage = "url('./assets/clouds.gif')";
+  } else if (weather.conditions === "Snow") {
+    displayDiv.style.backgroundImage = "url('./assets/snow.gif')";
+  } else if (
+    weather.conditions === "Rain" ||
+    weather.conditions === "Drizzle"
+  ) {
+    displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+  } else if (
+    weather.conditions === "Rain" ||
+    weather.conditions === "Drizzle"
+  ) {
+    displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+  } else if (weather.conditions === "Thunderstorm") {
+    displayDiv.style.backgroundImage = "url('./assets/thunderstorm.gif')";
+  } else {
+    displayDiv.style.backgroundImage = "url('./assets/fog.gif')";
+  }
+
   const titleDiv = document.createElement("div");
   titleDiv.classList.add("title");
   displayDiv.appendChild(titleDiv);
@@ -16,7 +38,7 @@ function displayWeather(weather) {
   tempDiv.classList.add("temp");
   lowerDiv.appendChild(tempDiv);
 
-  build(tempDiv, "p", weather.temp);
+  build(tempDiv, "p", `${weather.temp}°C`);
 
   const infoDiv = document.createElement("div");
   infoDiv.classList.add("info-div");
@@ -26,9 +48,9 @@ function displayWeather(weather) {
   list.classList.add("more-info-list");
   infoDiv.appendChild(list);
 
-  build(list, "li", weather.feels);
-  build(list, "li", weather.wind);
-  build(list, "li", weather.humidity);
+  build(list, "li", `Feels like: ${weather.feels}°C`);
+  build(list, "li", `Wind: ${weather.wind} km/h`);
+  build(list, "li", `Humidity: ${weather.humidity}%`);
 }
 
 function build(location, type, content) {
