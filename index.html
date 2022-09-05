@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
     <title>Weather App</title>
   </head>
   <body>
@@ -29,15 +33,67 @@
       <div class="display-weather"></div>
       <!-- </div> -->
     </main>
-    <div class="forecast-container">
-      <!-- <div class="card">
-        <h3 class="forecast-day">Today</h3>
-        <h4>rome</h4>
-        <p class="forecast-conditions">rain</p>
-        <p class="temp-forecast">25°</p>
-      </div> -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- <div class="swiper-slide">
+          <h3 class="forecast-day">Today</h3>
+          <h4>rome</h4>
+          <p class="forecast-conditions">rain</p>
+          <p class="temp-forecast">25°</p>
+        </div>
+        <div class="swiper-slide">
+          <h3 class="forecast-day">Today</h3>
+          <h4>rome</h4>
+          <p class="forecast-conditions">rain</p>
+          <p class="temp-forecast">25°</p>
+        </div>
+        <div class="swiper-slide">
+          <h3 class="forecast-day">Today</h3>
+          <h4>rome</h4>
+          <p class="forecast-conditions">rain</p>
+          <p class="temp-forecast">25°</p>
+        </div>
+        <div class="swiper-slide">
+          <h3 class="forecast-day">Today</h3>
+          <h4>rome</h4>
+          <p class="forecast-conditions">rain</p>
+          <p class="temp-forecast">25°</p>
+        </div>
+        <div class="swiper-slide">
+          <h3 class="forecast-day">Today</h3>
+          <h4>rome</h4>
+          <p class="forecast-conditions">rain</p>
+          <p class="temp-forecast">25°</p>
+        </div> -->
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="./scripts/app.js" type="module"></script>
+
+    <script>
+      // var swiper = new Swiper(".swiper", {
+      //   slidesPerView: 1,
+      //   spaceBetween: 10,
+      //   pagination: {
+      //     el: ".swiper-pagination",
+      //     clickable: true,
+      //   },
+      //   breakpoints: {
+      //     640: {
+      //       slidesPerView: 2,
+      //       spaceBetween: 20,
+      //     },
+      //     768: {
+      //       slidesPerView: 4,
+      //       spaceBetween: 40,
+      //     },
+      //     1024: {
+      //       slidesPerView: 5,
+      //       spaceBetween: 50,
+      //     },
+      //   },
+      // });
+    </script>
   </body>
 </html>

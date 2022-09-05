@@ -1,5 +1,5 @@
 function displayForecast(forecast) {
-  const container = document.querySelector(".forecast-container");
+  const container = document.querySelector(".swiper-wrapper");
   container.innerHTML = "";
 
   makeCard(forecast);
@@ -8,7 +8,7 @@ function displayForecast(forecast) {
 }
 
 function makeCard(forecast) {
-  const container = document.querySelector(".forecast-container");
+  const container = document.querySelector(".swiper-wrapper");
   let count = 0;
   for (const item in forecast) {
     // console.log(forecast[item][0]);
@@ -19,16 +19,17 @@ function makeCard(forecast) {
 
     const card = document.createElement("div");
     container.appendChild(card);
+    card.classList.add("swiper-slide");
     card.innerHTML = `
-      <div class="card">
+      
         <h3 class="forecast-day">${forecast[item][3]}</h3>
         
         <p class="forecast-conditions">${forecast[item][2]}</p>
         <p class="temp-forecast">${Math.round(forecast[item][1])}°C</p>
-      </div>
+      
     `;
 
-    let div = document.querySelectorAll(".card")[count];
+    let div = document.querySelectorAll(".swiper-slide")[count];
 
     if (conditions === "Clear") {
       div.style.backgroundImage = "url('./assets/clear.gif')";
@@ -48,6 +49,29 @@ function makeCard(forecast) {
 
     count++;
   }
+
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+    },
+  });
 }
 
 export { displayForecast };
