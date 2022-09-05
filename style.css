@@ -22,9 +22,35 @@ main {
 .search-field {
   border: 2px solid red;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 4em;
+  gap: .5em;
+}
+
+#location {
+  width: auto;
+  height: 2em;
+  /* margin-right: 2em; */
+  font-size: 1.3rem;
+  font-family: 'Montserrat',
+    sans-serif;
+  border-radius: 10px;
+  border: 1px solid #ddd3d3;
+  padding-left: .3em;
+
+}
+
+#search-btn {
+  height: 2.3em;
+  border: 1px solid black;
+  font-family: 'Montserrat',
+      sans-serif;
+  font-weight: 600;
+  border-radius: 7px;
+  background-color: black;
+  color: #ddd3d3;
 }
 
 .display-weather {
@@ -37,6 +63,9 @@ main {
   margin: 0 auto;
   background-size: cover;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* width: 50%;
+    padding-bottom: 50%;
+    position: relative; */
 }
 
 .lower-div {
@@ -56,6 +85,10 @@ ul {
   box-shadow: var(--el-box-shadow);
 }
 
+li {
+  margin: .3em;
+}
+
 p {
   text-align: center;
   background-color: white;
@@ -73,12 +106,22 @@ h1 {
       box-shadow: var(--el-box-shadow);
 }
 
+.conditions {
+  width: fit-content;
+}
+
+h3 {
+  position: absolute;
+  top: 1px;
+  left: 20px;
+}
+
 .units {
   display: flex;
   gap: .7em;
   justify-content: flex-end;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 1px;
   right: 1px;
 

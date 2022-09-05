@@ -10,7 +10,7 @@ async function fetchWeather(location) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const weather = {
       name: data.name,
       temp: Math.round(data.main.temp),
@@ -19,7 +19,7 @@ async function fetchWeather(location) {
       humidity: data.main.humidity,
       conditions: data.weather[0].main,
     };
-    console.log(weather);
+    // console.log(weather);
     displayWeather(weather);
   } catch (err) {
     console.log(err);

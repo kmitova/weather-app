@@ -5,8 +5,6 @@ function displayWeather(weather) {
 
   let checkbox = document.querySelector("input[type='checkbox']");
 
-  console.log(checkbox.checked);
-
   if (weather.conditions === "Clear") {
     displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
   } else if (weather.conditions === "Clouds") {
