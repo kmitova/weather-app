@@ -63,6 +63,7 @@ main {
   margin: 0 auto;
   background-size: cover;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
   /* width: 50%;
     padding-bottom: 50%;
     position: relative; */
@@ -110,7 +111,7 @@ h1 {
   width: fit-content;
 }
 
-h3 {
+#title{
   position: absolute;
   top: 1px;
   left: 20px;
@@ -190,6 +191,36 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  border: 2px solid red;
+  background-size: cover;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.forecast-day {
+  text-align: center;
+  background: white;
+  padding: .3em;
+    border-radius: 5px;
+    box-shadow: var(--el-box-shadow);
+
+}
+
+.forecast-conditions {
+  /* margin: 0 5em; */
+}
+
+.temp-forecast {
+  margin: 1em 5em;
 }
 
 @media only screen and (max-width: 45em) {

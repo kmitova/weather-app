@@ -1,3 +1,5 @@
+import { displayForecast } from "./displayForecast.js";
+
 async function fetchForecast() {
   try {
     const api = "https://api.openweathermap.org/data/2.5/forecast?q=";
@@ -8,10 +10,11 @@ async function fetchForecast() {
 
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data.list[0].main.temp);
+    console.log(data);
     // console.log(data.list[0].weather[0].main);
 
     const forecast = getForecast(data);
+    displayForecast(forecast);
   } catch (err) {
     console.log(err);
   }
@@ -19,16 +22,29 @@ async function fetchForecast() {
 
 function getForecast(data) {
   const forecast = {};
-
+  const days = {
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+    0: "Sunday",
+  };
   let count = 0;
-
+  const d = new Date();
+  let day = d.getDay();
+  console.log(d, day);
   for (let index = 0; index < data.list.length; index += 8) {
     forecast[count] = [
+      data.city.name,
       data.list[index].main.temp,
       data.list[index].weather[0].main,
+      days[day],
     ];
     console.log(data.list[index]);
     count++;
+    day++;
   }
 
   console.log(forecast);
