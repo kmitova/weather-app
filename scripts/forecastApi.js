@@ -45,6 +45,9 @@ function getForecast(data) {
     console.log(data.list[index]);
     count++;
     day++;
+    if (day > 6) {
+      day = 0;
+    }
   }
 
   console.log(forecast);

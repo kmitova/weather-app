@@ -3,12 +3,17 @@ function displayForecast(forecast) {
   container.innerHTML = "";
 
   makeCard(forecast);
-
-  console.log("works");
 }
 
 function makeCard(forecast) {
+  let checkbox = document.querySelector("input[type='checkbox']");
   const container = document.querySelector(".swiper-wrapper");
+  // const title = document.createElement("h5");
+  // title.textContent = "5 day weather forecast";
+  // location.insertBefore(title, container.children[0]);
+
+  const title = document.querySelector("h5");
+  title.style.display = "block";
   let count = 0;
   for (const item in forecast) {
     // console.log(forecast[item][0]);
@@ -20,7 +25,8 @@ function makeCard(forecast) {
     const card = document.createElement("div");
     container.appendChild(card);
     card.classList.add("swiper-slide");
-    card.innerHTML = `
+    if (checkbox.checked) {
+      card.innerHTML = `
       
         <h3 class="forecast-day">${forecast[item][3]}</h3>
         
@@ -28,6 +34,18 @@ function makeCard(forecast) {
         <p class="temp-forecast">${Math.round(forecast[item][1])}°C</p>
       
     `;
+    } else {
+      card.innerHTML = `
+      
+        <h3 class="forecast-day">${forecast[item][3]}</h3>
+        
+        <p class="forecast-conditions">${forecast[item][2]}</p>
+        <p class="temp-forecast">${Math.round(
+          (forecast[item][1] * 9) / 5 + 32
+        )}°F</p>
+      
+    `;
+    }
 
     let div = document.querySelectorAll(".swiper-slide")[count];
 
@@ -50,25 +68,54 @@ function makeCard(forecast) {
     count++;
   }
 
+  // var swiper = new Swiper(".mySwiper", {
+  //   slidesPerView: 1,
+  //   spaceBetween: 10,
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     clickable: true,
+  //   },
+  //   breakpoints: {
+  //     640: {
+  //       slidesPerView: 2,
+  //       spaceBetween: 20,
+  //     },
+  //     768: {
+  //       slidesPerView: 4,
+  //       spaceBetween: 40,
+  //     },
+  //     1024: {
+  //       slidesPerView: 5,
+  //       spaceBetween: 50,
+  //     },
+  //   },
+  // });
+
   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
+    slidesPerView: 1.5,
     spaceBetween: 10,
+    centeredSlides: true,
+    freeMode: true,
+    grabCursor: true,
+    loop: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
+    // autoplay: {
+    //   delay: 4000,
+    //   disableOnInteraction: false,
+    // },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
+      500: {
+        slidesPerView: 1,
       },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-      1024: {
-        slidesPerView: 5,
-        spaceBetween: 50,
+      700: {
+        slidesPerView: 1.5,
       },
     },
   });

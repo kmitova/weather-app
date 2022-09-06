@@ -1,7 +1,7 @@
 function displayWeather(weather) {
   const displayDiv = document.querySelector(".display-weather");
   displayDiv.innerHTML = "";
-  displayDiv.style.border = "2px solid black";
+  // displayDiv.style.border = "2px solid black";
 
   let checkbox = document.querySelector("input[type='checkbox']");
 
