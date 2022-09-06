@@ -15,7 +15,7 @@ function displayError() {
   const container = document.querySelector(".container");
   container.style.display = "none";
   const h5 = document.querySelector("h5");
-  h5.innerHTML = "";
+  h5.style.display = "none";
 }
 
 export { displayError };
