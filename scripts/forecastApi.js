@@ -1,4 +1,5 @@
 import { displayForecast } from "./displayForecast.js";
+import { displayError } from "./err.js";
 
 async function fetchForecast() {
   try {
@@ -10,12 +11,11 @@ async function fetchForecast() {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
-    // console.log(data.list[0].weather[0].main);
 
     const forecast = getForecast(data);
     displayForecast(forecast);
   } catch (err) {
+    displayError();
     console.log(err);
   }
 }
@@ -34,7 +34,6 @@ function getForecast(data) {
   let count = 0;
   const d = new Date();
   let day = d.getDay();
-  console.log(d, day);
   for (let index = 0; index < data.list.length; index += 8) {
     forecast[count] = [
       data.city.name,
@@ -42,15 +41,12 @@ function getForecast(data) {
       data.list[index].weather[0].main,
       days[day],
     ];
-    console.log(data.list[index]);
     count++;
     day++;
     if (day > 6) {
       day = 0;
     }
   }
-
-  console.log(forecast);
 
   return forecast;
 }

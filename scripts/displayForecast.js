@@ -1,4 +1,6 @@
 function displayForecast(forecast) {
+  const bigContainer = document.querySelector(".container");
+  bigContainer.style.display = "block";
   const container = document.querySelector(".swiper-wrapper");
   container.innerHTML = "";
 
@@ -8,20 +10,12 @@ function displayForecast(forecast) {
 function makeCard(forecast) {
   let checkbox = document.querySelector("input[type='checkbox']");
   const container = document.querySelector(".swiper-wrapper");
-  // const title = document.createElement("h5");
-  // title.textContent = "5 day weather forecast";
-  // location.insertBefore(title, container.children[0]);
 
   const title = document.querySelector("h5");
   title.style.display = "block";
   let count = 0;
   for (const item in forecast) {
-    // console.log(forecast[item][0]);
-    // console.log(forecast[item][1]);
-    // console.log(forecast[item][2]);
     let conditions = forecast[item][2];
-    console.log(conditions);
-
     const card = document.createElement("div");
     container.appendChild(card);
     card.classList.add("swiper-slide");
@@ -68,29 +62,6 @@ function makeCard(forecast) {
     count++;
   }
 
-  // var swiper = new Swiper(".mySwiper", {
-  //   slidesPerView: 1,
-  //   spaceBetween: 10,
-  //   pagination: {
-  //     el: ".swiper-pagination",
-  //     clickable: true,
-  //   },
-  //   breakpoints: {
-  //     640: {
-  //       slidesPerView: 2,
-  //       spaceBetween: 20,
-  //     },
-  //     768: {
-  //       slidesPerView: 4,
-  //       spaceBetween: 40,
-  //     },
-  //     1024: {
-  //       slidesPerView: 5,
-  //       spaceBetween: 50,
-  //     },
-  //   },
-  // });
-
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1.5,
     spaceBetween: 10,
@@ -102,10 +73,6 @@ function makeCard(forecast) {
       el: ".swiper-pagination",
       clickable: true,
     },
-    // autoplay: {
-    //   delay: 4000,
-    //   disableOnInteraction: false,
-    // },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
