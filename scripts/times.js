@@ -22,9 +22,8 @@ async function getCoordinates(location) {
   }
 }
 
-// const coordinates = getCoordinates("London");
-// console.log(coordinates);
-
+// 2. use coordinates with google api key to get time
+// 3. use the response to calculate local time
 async function getLocalTime(coordinates) {
   const api = "https://maps.googleapis.com/maps/api/timezone/json?location=";
   const loc = `${coordinates.latitude}, ${coordinates.longitude}`;
@@ -39,16 +38,17 @@ async function getLocalTime(coordinates) {
     console.log(data);
     const offsets = data.dstOffset * 1000 + data.rawOffset * 1000;
     const localDate = new Date(timestamp * 1000 + offsets);
-    console.log(localDate.toLocaleString());
+    console.log(localDate);
+    console.log(new Date());
+    const unix = Math.floor(localDate.getTime() / 1000);
+    console.log(unix);
+    return unix;
+    // return the time
   } catch (err) {
     console.log(err);
   }
 }
 
-// getLocalTime(coordinates);
-
-// 2. use coordinates with google api key to get time
-// 3. use the response to calculate local time
 // 4. calculate sunset and sunrise times from the openweathermap api call (the one that fetches the weather)
 // 5. if after sunset: dark mode, if after sunrise: light mode
 
