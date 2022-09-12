@@ -10,27 +10,47 @@ function displayWeather(weather, isNight) {
 
   let checkbox = document.querySelector("input[type='checkbox']");
 
-  // if (weather.conditions === "Clear") {
-  //   displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
-  // } else if (weather.conditions === "Clouds") {
-  //   displayDiv.style.backgroundImage = "url('./assets/clouds.gif')";
-  // } else if (weather.conditions === "Snow") {
-  //   displayDiv.style.backgroundImage = "url('./assets/snow.gif')";
-  // } else if (
-  //   weather.conditions === "Rain" ||
-  //   weather.conditions === "Drizzle"
-  // ) {
-  //   displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
-  // } else if (
-  //   weather.conditions === "Rain" ||
-  //   weather.conditions === "Drizzle"
-  // ) {
-  //   displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
-  // } else if (weather.conditions === "Thunderstorm") {
-  //   displayDiv.style.backgroundImage = "url('./assets/thunderstorm.gif')";
-  // } else {
-  //   displayDiv.style.backgroundImage = "url('./assets/fog.gif')";
-  // }
+  if (weather.conditions === "Clear") {
+    if (isNight) {
+      displayDiv.style.backgroundImage = "url('./assets/nightClear.gif')";
+    } else {
+      displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
+    }
+  } else if (weather.conditions === "Clouds") {
+    if (isNight) {
+      displayDiv.style.backgroundImage = "url('./assets/nightClouds.gif')";
+    } else {
+      displayDiv.style.backgroundImage = "url('./assets/clouds.gif')";
+    }
+  } else if (weather.conditions === "Snow") {
+    if (isNight) {
+      displayDiv.style.backgroundImage = "url('./assets/nightSnow.gif')";
+    } else {
+      displayDiv.style.backgroundImage = "url('./assets/snow.gif')";
+    }
+  } else if (
+    weather.conditions === "Rain" ||
+    weather.conditions === "Drizzle"
+  ) {
+    if (isNight) {
+      displayDiv.style.backgroundImage = "url('./assets/NightRain.gif')";
+    } else {
+      displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+    }
+    // } else if (
+    //   weather.conditions === "Rain" ||
+    //   weather.conditions === "Drizzle"
+    // ) {
+    //   displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+  } else if (weather.conditions === "Thunderstorm") {
+    if (isNight) {
+      displayDiv.style.backgroundImage = "url('./assets/nightStorm.gif')";
+    } else {
+      displayDiv.style.backgroundImage = "url('./assets/thunderstorm.gif')";
+    }
+  } else {
+    displayDiv.style.backgroundImage = "url('./assets/fog.gif')";
+  }
 
   const titleDiv = document.createElement("div");
   titleDiv.classList.add("title");
