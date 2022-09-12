@@ -1,30 +1,36 @@
-function displayWeather(weather) {
+function displayWeather(weather, isNight) {
   const displayDiv = document.querySelector(".display-weather");
   displayDiv.innerHTML = "";
+  console.log(isNight);
+  if (isNight) {
+    displayDiv.style.backgroundColor = "blue";
+  } else {
+    displayDiv.style.backgroundColor = "white";
+  }
 
   let checkbox = document.querySelector("input[type='checkbox']");
 
-  if (weather.conditions === "Clear") {
-    displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
-  } else if (weather.conditions === "Clouds") {
-    displayDiv.style.backgroundImage = "url('./assets/clouds.gif')";
-  } else if (weather.conditions === "Snow") {
-    displayDiv.style.backgroundImage = "url('./assets/snow.gif')";
-  } else if (
-    weather.conditions === "Rain" ||
-    weather.conditions === "Drizzle"
-  ) {
-    displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
-  } else if (
-    weather.conditions === "Rain" ||
-    weather.conditions === "Drizzle"
-  ) {
-    displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
-  } else if (weather.conditions === "Thunderstorm") {
-    displayDiv.style.backgroundImage = "url('./assets/thunderstorm.gif')";
-  } else {
-    displayDiv.style.backgroundImage = "url('./assets/fog.gif')";
-  }
+  // if (weather.conditions === "Clear") {
+  //   displayDiv.style.backgroundImage = "url('./assets/clear.gif')";
+  // } else if (weather.conditions === "Clouds") {
+  //   displayDiv.style.backgroundImage = "url('./assets/clouds.gif')";
+  // } else if (weather.conditions === "Snow") {
+  //   displayDiv.style.backgroundImage = "url('./assets/snow.gif')";
+  // } else if (
+  //   weather.conditions === "Rain" ||
+  //   weather.conditions === "Drizzle"
+  // ) {
+  //   displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+  // } else if (
+  //   weather.conditions === "Rain" ||
+  //   weather.conditions === "Drizzle"
+  // ) {
+  //   displayDiv.style.backgroundImage = "url('./assets/rain.gif')";
+  // } else if (weather.conditions === "Thunderstorm") {
+  //   displayDiv.style.backgroundImage = "url('./assets/thunderstorm.gif')";
+  // } else {
+  //   displayDiv.style.backgroundImage = "url('./assets/fog.gif')";
+  // }
 
   const titleDiv = document.createElement("div");
   titleDiv.classList.add("title");

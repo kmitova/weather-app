@@ -10,13 +10,13 @@ async function getCoordinates(location) {
     const data = await response.json();
     const latitude = data[0].lat;
     const longitude = data[0].lon;
-    console.log(data);
+    // console.log(data);
     // console.log(data[0].lat);
     // console.log(data[0].lon);
     let result = { latitude, longitude };
-    console.log(result);
+    // console.log(result);
     // return { latitude, longitude };
-    getLocalTime(result);
+    return await getLocalTime(result);
   } catch (err) {
     console.log(err);
   }
@@ -35,13 +35,13 @@ async function getLocalTime(coordinates) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     const offsets = data.dstOffset * 1000 + data.rawOffset * 1000;
     const localDate = new Date(timestamp * 1000 + offsets);
-    console.log(localDate);
-    console.log(new Date());
+    // console.log(localDate);
+    // console.log(new Date());
     const unix = Math.floor(localDate.getTime() / 1000);
-    console.log(unix);
+    // console.log(unix);
     return unix;
     // return the time
   } catch (err) {
