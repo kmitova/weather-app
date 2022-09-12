@@ -1,5 +1,3 @@
-// 1. get coordinates from openweathermap
-
 async function getCoordinates(location) {
   const api = "http://api.openweathermap.org/geo/1.0/direct?q=";
 
@@ -22,8 +20,6 @@ async function getCoordinates(location) {
   }
 }
 
-// 2. use coordinates with google api key to get time
-// 3. use the response to calculate local time
 async function getLocalTime(coordinates) {
   const api = "https://maps.googleapis.com/maps/api/timezone/json?location=";
   const loc = `${coordinates.latitude}, ${coordinates.longitude}`;
@@ -48,8 +44,5 @@ async function getLocalTime(coordinates) {
     console.log(err);
   }
 }
-
-// 4. calculate sunset and sunrise times from the openweathermap api call (the one that fetches the weather)
-// 5. if after sunset: dark mode, if after sunrise: light mode
 
 export { getCoordinates };

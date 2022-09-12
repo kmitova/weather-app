@@ -1,11 +1,14 @@
 function displayWeather(weather, isNight) {
   const displayDiv = document.querySelector(".display-weather");
   displayDiv.innerHTML = "";
+  const body = document.getElementsByTagName("body")[0];
   console.log(isNight);
   if (isNight) {
-    displayDiv.style.backgroundColor = "blue";
+    body.style.backgroundColor = "#1d3557";
+    document.getElementById("title").style.color = "white";
   } else {
-    displayDiv.style.backgroundColor = "white";
+    body.style.backgroundColor = "#caf0f8";
+    document.getElementById("title").style.color = "#184e77";
   }
 
   let checkbox = document.querySelector("input[type='checkbox']");
