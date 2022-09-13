@@ -22,12 +22,16 @@ async function fetchWeather(location) {
       sunrise: data.sys.sunrise,
       sunset: data.sys.sunset,
     };
-    console.log(weather.sunrise);
-    console.log(weather.sunset);
+    console.log("Sunrise: " + weather.sunrise);
+    console.log("Sunset: " + weather.sunset);
     // let isNight = false;
     const localTime = await getCoordinates(city);
-    console.log(localTime);
-    if (localTime >= weather.sunrise && localTime < weather.sunset) {
+    // console.log("Current: " + localTime);
+    // console.log(new Date(weather.sunrise * 1000));
+    // console.log(new Date(weather.sunset * 1000));
+    // console.log(new Date(localTime * 1000));
+
+    if (localTime < weather.sunset && localTime > weather.sunrise) {
       console.log("day");
       isNight = false;
     } else {

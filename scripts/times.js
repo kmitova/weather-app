@@ -26,7 +26,7 @@ async function getLocalTime(coordinates) {
   let targetDate = new Date();
   let timestamp =
     targetDate.getTime() / 1000 + targetDate.getTimezoneOffset() * 60;
-  const api_key = "";
+  const api_key = "AIzaSyAtDx6nNgLWZaM6E70NsSS9iVEEcRSlspM";
   const url = api + loc + "&timestamp=" + timestamp + "&key=" + api_key;
   try {
     const response = await fetch(url);
